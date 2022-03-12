@@ -1,7 +1,11 @@
 
 public class Scale {
     
-
+    static final String DB_URL = "jdbc:mysql://localhost/";
+    static final String USER = "joeulam";
+    static final String PASS = "jl308257";
+    static final String QUERY = "SELECT id, first, last, age FROM Employees";
+ 
     public static String ratingcal(int range)
     {
         if(range <= 3)
@@ -15,5 +19,6 @@ public class Scale {
         else{
             return "WOOO did something special happen?";
         }
+        INSERT Database ()
     }
 }
