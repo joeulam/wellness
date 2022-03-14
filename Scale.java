@@ -1,10 +1,7 @@
 
-
-
-
 public class Scale {
 
-    
+
     public static String ratingcal(int range)
     {
         if(range <= 3)
@@ -19,4 +16,10 @@ public class Scale {
             return "WOOO did something special happen?";
         }
     }
+    
+
+
+
+    
 }
+
