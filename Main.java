@@ -7,10 +7,6 @@ public class Main {
 
     
     public static void main(String[] args) {
-        
-        
-       
-
         try{
             // DRIVER/CONNECTOR SET UP
             Class.forName("com.mysql.cj.jdbc.Driver");
