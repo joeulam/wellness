@@ -1,34 +1,47 @@
-import java.util.Scanner; 
+import java.util.Scanner;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
 import java.sql.* ;
-import java.util.*;
-import java.sql.Date.*;
+
 public class Main {
 
     
     public static void main(String[] args) {
-        long millis=System.currentTimeMillis();  
-        java.sql.Date date =new java.sql.Date(millis);
+        
+        
+       
 
-        Scanner rating = new Scanner(System.in);
-        System.out.println("On a scale of 1-10 how are you feeling today?");
-        int userName = rating.nextInt();
-        System.out.print(Scale.ratingcal(userName));
-
-
-
-        try(Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/app", "joeulam","jl308257");
-        PreparedStatement pstmt = conn.prepareStatement("INSERT INTO `app`(dates,scale) VALUES (?, ?)")){
-
+        try{
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            long millis=System.currentTimeMillis();  
+            java.sql.Date date =new java.sql.Date(millis);
+            String add = "jdbc:mysql://localhost:3306/app";
+            String user = "joeulam";
+            String pass = "jl308257";
+            Connection conn = DriverManager.getConnection(add,user,pass);
+            PreparedStatement pstmt = conn.prepareStatement("INSERT INTO `data`(dates,scale) VALUES (?, ?)");
+            BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+            Scanner myObj = new Scanner(System.in);
+            System.out.println("On a scale of 1-10 how are you feeling today?");
+            int rating = myObj.nextInt(); 
+            myObj.close(); 
+            System.out.println(Scale.ratingcal(rating));
                 pstmt.setDate(1, date);
-                pstmt.setInt(2,userName);
+                pstmt.setInt(2,rating);
                 pstmt.executeUpdate();
-            System.out.println("Database connected");}
+                System.out.println(" Inserted");
+                conn.close();
+            }
             catch (Exception e) {
-                //TODO: handle exception
+                System.err.println("Message: " + e.getMessage());
+        }
             }
         }
+
+    
         
-    }
+    
+
         
 
 
