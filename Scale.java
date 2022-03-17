@@ -4,16 +4,22 @@ public class Scale {
 
     public static String ratingcal(int range)
     {
-        if(range <= 3)
+        if(range <= 0 || range >= 11)
         {
-            return "Oh no what happened?";
-        }
-        else if (range >= 4 && range <= 7)
-        {
-            return "Oh why was it medicore?";
+            return "Not a number in range";
         }
         else{
-            return "WOOO did something special happen?";
+            if(range <= 3)
+            {
+                return "Oh no ";
+            }
+            else if (range >= 4 && range <= 7)
+            {
+                return "Oh why ";
+            }
+            else{
+                return "WOOO ";
+            }
         }
     }
     

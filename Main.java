@@ -22,18 +22,21 @@ public class Main {
 
             //AUTHORIZATION & WHAT DATA TO INSORT
             Connection conn = DriverManager.getConnection(add,user,pass);
-            PreparedStatement pstmt = conn.prepareStatement("INSERT INTO `data`(dates,scale) VALUES (?, ?)");
+            PreparedStatement pstmt = conn.prepareStatement("INSERT INTO `data`(dates,scale,reponse) VALUES (?, ?, ?)");
 
             Scanner myObj = new Scanner(System.in); //Open scanner class
             System.out.println("On a scale of 1-10 how are you feeling today?");
             int rating = myObj.nextInt(); //Read user response
+            System.out.println(Scale.ratingcal(rating)+"what happened?");
+            String respone = myObj.nextLine();
+            respone = myObj.nextLine();
+
             myObj.close(); //close scanner
 
-            System.out.println(Scale.ratingcal(rating)); //return reponse
                 pstmt.setDate(1, date);//inserts date
-                pstmt.setInt(2,rating);//inserts reponse
+                pstmt.setInt(2,rating);//inserts rating
+                pstmt.setString(3, respone);
                 pstmt.executeUpdate();//sends it to the database
-                System.out.println(" Inserted");
                 conn.close();//close database
             }
             catch (Exception e) {
