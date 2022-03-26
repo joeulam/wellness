@@ -24,8 +24,11 @@ public class Main {
             String password = username.nextLine();
             username.close();
             Connection con = DriverManager.getConnection(add,"checker","guest");
+            Connection usercr = DriverManager.getConnection(add,"checker","guest");
+            String que = "CREATE USER IF NOT EXISTS " +logins+"'@'localhost'IDENTIFIED BY " +password;
+            PreparedStatement usercs = usercr.prepareStatement(que);
             PreparedStatement ps = con.prepareStatement("CREATE TABLE IF NOT EXISTS "+logins+"() ADD COLUMN `dates` DATETIME NOT NULL FIRST,ADD PRIMARY KEY (`dates`) ADD COLUMN `scale` INT NOT NULL AFTER `dates`, ADD COLUMN `reponse` VARCHAR(225) NULL AFTER `scale`,ADD PRIMARY KEY (`dates`, `scale`);");
-            
+            usercs.executeUpdate();
             ps.executeQuery();
 
             /*if(!(ps.executeQuery().equals(logins)))
