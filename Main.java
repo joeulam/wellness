@@ -26,10 +26,12 @@ public class Main {
             Connection con = DriverManager.getConnection(add,"checker","guest");
             Connection usercr = DriverManager.getConnection(add,"checker","guest");
             String que = "CREATE USER IF NOT EXISTS " +logins+"@'localhost' IDENTIFIED BY '"+password+"'";
+
             PreparedStatement usercs = usercr.prepareStatement(que);
-            String tablecre = "CREATE TABLE IF NOT EXISTS " + logins + "(""(ADD COLUMN `dates`, " + "DATETIME NOT NULL FIRST ADD COLUMN `scale`, " + "INT NOT NULL AFTER `dates`, " + "ADD COLUMN `reponse` VARCHAR(225), " +"NULL AFTER `scale`)");
+            String tablecre = "CREATE TABLE IF NOT EXISTS " + logins + "(" + " dates DATETIME NOT NULL," + "scale INT NOT NULL,"+ "reponse VARCHAR(225))";
+            PreparedStatement batlecreater = con.prepareStatement(tablecre);
             usercs.executeUpdate();
-            tablecre.executeUpdate();
+            batlecreater.executeUpdate();
 
             /*if(!(ps.executeQuery().equals(logins)))
            {
