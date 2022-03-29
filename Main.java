@@ -22,8 +22,8 @@ public class Main {
             String logins = username.nextLine(); //Read user response
             System.out.println("Enter your password");
             String password = username.nextLine();
-            username.close();
             
+
             Connection con = DriverManager.getConnection(add,"checker","guest");
             Connection usercr = DriverManager.getConnection(add,"checker","guest");
             String que = "CREATE USER IF NOT EXISTS " +logins+"@'localhost' IDENTIFIED BY '"+password+"'";
@@ -32,8 +32,9 @@ public class Main {
             String tablecre = "CREATE TABLE IF NOT EXISTS " + logins + "(" + " dates DATETIME NOT NULL," + "scale INT NOT NULL,"+ "reponse VARCHAR(225))";
             PreparedStatement batlecreater = con.prepareStatement(tablecre);
             String userperm = "GRANT CREATE ON * . * TO '" +logins+"' @'localhost'";
-
             usercs.executeUpdate();
+            usercs = usercr.prepareStatement(userperm);
+            userperm ="GRANT INSERT ON * . * TO '" +logins+"' @'localhost'";
             usercs = usercr.prepareStatement(userperm);
             usercs.executeUpdate();
             batlecreater.executeUpdate();
@@ -52,19 +53,17 @@ public class Main {
             Connection conn = DriverManager.getConnection(add,user,pass);
 
 
-            PreparedStatement pstmt = conn.prepareStatement("INSERT INTO `data`(dates,scale,reponse) VALUES (?, ?, ?)");
+            PreparedStatement pstmt = conn.prepareStatement("INSERT INTO `"+logins+"`(dates,scale,reponse) VALUES (?, ?, ?)");
 
 
 
 
-            Scanner myObj = new Scanner(System.in); //Open scanner class
             System.out.println("On a scale of 1-10 how are you feeling today?");
-            int rating = myObj.nextInt(); //Read user response
+            int rating = username.nextInt(); //Read user response
             System.out.println(Scale.ratingcal(rating)+"what happened?");
-            String respone = myObj.nextLine();
-            respone = myObj.nextLine();
-
-            myObj.close(); //close scanner
+            String respone = username.nextLine();
+            respone = username.nextLine();
+            username.close(); //close scanner
 
                 pstmt.setDate(1, date);//inserts date
                 pstmt.setInt(2,rating);//inserts rating
