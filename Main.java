@@ -23,6 +23,7 @@ public class Main {
             System.out.println("Enter your password");
             String password = username.nextLine();
             username.close();
+            
             Connection con = DriverManager.getConnection(add,"checker","guest");
             Connection usercr = DriverManager.getConnection(add,"checker","guest");
             String que = "CREATE USER IF NOT EXISTS " +logins+"@'localhost' IDENTIFIED BY '"+password+"'";
@@ -30,6 +31,10 @@ public class Main {
             PreparedStatement usercs = usercr.prepareStatement(que);
             String tablecre = "CREATE TABLE IF NOT EXISTS " + logins + "(" + " dates DATETIME NOT NULL," + "scale INT NOT NULL,"+ "reponse VARCHAR(225))";
             PreparedStatement batlecreater = con.prepareStatement(tablecre);
+            String userperm = "GRANT CREATE ON * . * TO '" +logins+"' @'localhost'";
+
+            usercs.executeUpdate();
+            usercs = usercr.prepareStatement(userperm);
             usercs.executeUpdate();
             batlecreater.executeUpdate();
 
