@@ -36,6 +36,8 @@ public class Main {
             usercs = usercr.prepareStatement(userperm);
             userperm ="GRANT INSERT ON * . * TO '" +logins+"' @'localhost'";
             usercs = usercr.prepareStatement(userperm);
+            userperm ="GRANT INSERT ON * . * TO '" +logins+"' @'localhost'";
+
             usercs.executeUpdate();
             batlecreater.executeUpdate();
 
