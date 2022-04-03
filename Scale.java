@@ -11,14 +11,14 @@ public class Scale {
         else{
             if(range <= 3)
             {
-                return "Oh no ";
+                return "Oh no what happened?";
             }
             else if (range >= 4 && range <= 7)
             {
-                return "Oh why ";
+                return "Oh why was it eh?";
             }
             else{
-                return "WOOO ";
+                return "WOOO yay";
             }
         }
     }

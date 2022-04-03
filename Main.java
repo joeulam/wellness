@@ -6,6 +6,7 @@ import java.sql.* ;
 import java.io.Reader;
 import java.io.FileReader;
 import java.io.FileNotFoundException;
+import java.util.*;
 
 public class Main {
 
@@ -13,6 +14,7 @@ public class Main {
     public static void main(String[] args) {
         try{
             // DRIVER/CONNECTOR SET UP
+            Calendar c = Calendar.getInstance();
             Class.forName("com.mysql.cj.jdbc.Driver");
             long millis=System.currentTimeMillis();  
             java.sql.Date date =new java.sql.Date(millis);
@@ -62,7 +64,7 @@ public class Main {
 
             System.out.println("On a scale of 1-10 how are you feeling today?");
             int rating = username.nextInt(); //Read user response
-            System.out.println(Scale.ratingcal(rating)+"what happened?");
+            System.out.println(Scale.ratingcal(rating));
             String respone = username.nextLine();
             respone = username.nextLine();
             username.close(); //close scanner
@@ -72,6 +74,8 @@ public class Main {
                 pstmt.setString(3, respone);
                 pstmt.executeUpdate();//sends it to the database
                 conn.close();//close database
+            
+            if()
             }
             catch (Exception e) {
                 System.err.println("Message: " + e.getMessage());
