@@ -9,21 +9,23 @@ import java.io.FileNotFoundException;
 import java.util.*;
 
 public class Main {
-
-    
+    public static String logins;
+    public static String password;
     public static void main(String[] args) {
         try{
             // DRIVER/CONNECTOR SET UP
+            
             Calendar c = Calendar.getInstance();
+            
             Class.forName("com.mysql.cj.jdbc.Driver");
             long millis=System.currentTimeMillis();  
             java.sql.Date date =new java.sql.Date(millis);
             String add = "jdbc:mysql://localhost:3306/app";
             Scanner username = new Scanner(System.in);
             System.out.println("Type your username");
-            String logins = username.nextLine(); //Read user response
+            logins = username.nextLine(); //Read user response
             System.out.println("Enter your password");
-            String password = username.nextLine();
+            password = username.nextLine();
             
 
             Connection con = DriverManager.getConnection(add,"checker","guest");
@@ -75,7 +77,9 @@ public class Main {
                 pstmt.executeUpdate();//sends it to the database
                 conn.close();//close database
             
-            if()
+            if(c.get(Calendar.DAY_OF_WEEK) == 7){
+                System.out.println(Weekly.ave());
+            }
             }
             catch (Exception e) {
                 System.err.println("Message: " + e.getMessage());
