@@ -8,7 +8,11 @@ public class Weekly{
             Class.forName("com.mysql.cj.jdbc.Driver");
             String add = "jdbc:mysql://localhost:3306/app";
             Connection con = DriverManager.getConnection(add,Main.logins,Main.password);
-            con.prepareStatement("SELECT FROM '"+Main.logins+"'");
+            for(int last = -7; last <= 0; last++){
+                PreparedStatement cons = con.prepareStatement("SELECT 'dates','scale' FROM '"+Main.logins+"' WHERE DAY(dates) = MONTH(DATE_ADD(CURDATE(),INTERVAL"+ "DAY)");
+                a += cons.executeUpdate();
+            }
+            a = a/7;
         }
         catch(Exception e){
             System.err.println("Message: " + e.getMessage());

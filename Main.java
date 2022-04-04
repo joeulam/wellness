@@ -77,7 +77,7 @@ public class Main {
                 pstmt.executeUpdate();//sends it to the database
                 conn.close();//close database
             
-            if(c.get(Calendar.DAY_OF_WEEK) == 7){
+            if(c.get(Calendar.DAY_OF_WEEK) == 1){
                 System.out.println(Weekly.ave());
             }
             }
