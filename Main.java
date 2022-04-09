@@ -30,17 +30,17 @@ public class Main {
 
             Connection con = DriverManager.getConnection(add,"checker","guest");
             Connection usercr = DriverManager.getConnection(add,"checker","guest");
-            String que = "CREATE USER IF NOT EXISTS " +logins+"@'localhost' IDENTIFIED BY '"+password+"'";
+            String que = "CREATE USER IF NOT EXISTS " +logins+"@'%' IDENTIFIED BY '"+password+"'";
 
             PreparedStatement usercs = usercr.prepareStatement(que);
             String tablecre = "CREATE TABLE IF NOT EXISTS " + logins + "(" + " dates DATETIME NOT NULL," + "scale INT NOT NULL,"+ "reponse VARCHAR(225))";
             PreparedStatement batlecreater = con.prepareStatement(tablecre);
-            String userperm = "GRANT CREATE ON * . * TO '" +logins+"' @'localhost'";
+            String userperm = "GRANT CREATE ON * . * TO '" +logins+"' @'%'";
             usercs.executeUpdate();
             usercs = usercr.prepareStatement(userperm);
-            userperm ="GRANT INSERT ON * . * TO '" +logins+"' @'localhost'";
+            userperm ="GRANT INSERT ON * . * TO '" +logins+"' @'%'";
             usercs = usercr.prepareStatement(userperm);
-            userperm ="GRANT INSERT ON * . * TO '" +logins+"' @'localhost'";
+            userperm ="GRANT INSERT ON * . * TO '" +logins+"' @'%'";
 
             usercs.executeUpdate();
             batlecreater.executeUpdate();
