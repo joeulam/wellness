@@ -20,7 +20,7 @@ public class Main {
             Class.forName("com.mysql.cj.jdbc.Driver");
             long millis=System.currentTimeMillis();  
             java.sql.Date date =new java.sql.Date(millis);
-            String add = "jdbc:mysql://localhost:3306/app";
+            String add = "jdbc:mysql://192.168.1.120:80/app";
             Scanner username = new Scanner(System.in);
             System.out.println("Type your username");
             logins = username.nextLine(); //Read user response

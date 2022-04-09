@@ -6,7 +6,7 @@ public class Weekly{
         double a = 0;
         try{
             Class.forName("com.mysql.cj.jdbc.Driver");
-            String add = "jdbc:mysql://localhost:3306/app";
+            String add = "jdbc:mysql://192.168.1.120:80/app";
             Connection con = DriverManager.getConnection(add,Main.logins,Main.password);
             con.prepareStatement("SELECT FROM '"+Main.logins+"'");
         }
