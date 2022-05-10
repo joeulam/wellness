@@ -12,16 +12,24 @@ public class ratingp {
     {
         toberated = a;
         try{
+            File myobj2 = new File("negitive-words.txt");
+            Scanner myreader2 = new Scanner(myobj2);//reads negitive txt file
             File myObj = new File("positive-words.txt");
-            Scanner myReader = new Scanner(myObj);
+            Scanner myReader = new Scanner(myObj);//reads positive txt file
             while (myReader.hasNextLine()) {
                 String data = myReader.nextLine();
+                String neg = myreader2.nextLine();
                 if(toberated.contains(data))
                 {
                     backend++;
                 }
+                if(toberated.contains(neg))
+                {
+                    backend--;
+                }
             }
             myReader.close();
+            myreader2.close();
         }
         catch(FileNotFoundException e) {
             System.out.println("An error occurred.");
