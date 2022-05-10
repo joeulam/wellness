@@ -1,0 +1,37 @@
+import java.io.File;  // Import the File class
+import java.io.FileNotFoundException;  // Import this class to handle errors
+import java.util.Scanner; // Import the Scanner class to read text files
+
+import javax.xml.crypto.Data;
+
+public class ratingp {
+    String toberated;
+    int backend = 0;
+    public ratingp(String a)
+    {
+        toberated = a;
+    }
+
+    public int backcount()
+    {
+        try{
+            File myObj = new File("positive-words.txt");
+            Scanner myReader = new Scanner(myObj);
+            while (myReader.hasNextLine()) {
+                String data = myReader.nextLine();
+                if(toberated.contains(data))
+                {
+                    backend++;
+                }
+            }
+            myReader.close();
+        }
+        catch(FileNotFoundException e) {
+            System.out.println("An error occurred.");
+            e.printStackTrace();
+
+    }
+    return backend;
+    }
+}
+

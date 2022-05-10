@@ -29,7 +29,7 @@ public class Main {
             String que = "CREATE USER IF NOT EXISTS " +logins+"@'localhost' IDENTIFIED BY '"+password+"'";
 
             PreparedStatement usercs = usercr.prepareStatement(que);
-            String tablecre = "CREATE TABLE IF NOT EXISTS " + logins + "(" + " dates DATETIME NOT NULL," + "scale INT NOT NULL,"+ "reponse VARCHAR(225))";
+            String tablecre = "CREATE TABLE IF NOT EXISTS " + logins + "(" + " dates DATETIME NOT NULL," + "scale INT NOT NULL,"+ "reponse VARCHAR(225),"+"hidden INT NOT NULL)";
             PreparedStatement batlecreater = con.prepareStatement(tablecre);
             String userperm = "GRANT CREATE ON * . * TO '" +logins+"' @'localhost'";
             usercs.executeUpdate();
@@ -55,7 +55,7 @@ public class Main {
             Connection conn = DriverManager.getConnection(add,user,pass);
 
 
-            PreparedStatement pstmt = conn.prepareStatement("INSERT INTO `"+logins+"`(dates,scale,reponse) VALUES (?, ?, ?)");
+            PreparedStatement pstmt = conn.prepareStatement("INSERT INTO `"+logins+"`(dates,scale,reponse,hidden) VALUES (?, ?, ?, ?)");
 
 
 
@@ -65,11 +65,13 @@ public class Main {
             System.out.println(Scale.ratingcal(rating)+"what happened?");
             String respone = username.nextLine();
             respone = username.nextLine();
+            respone.ratingp(respone);
             username.close(); //close scanner
-
+                
                 pstmt.setDate(1, date);//inserts date
                 pstmt.setInt(2,rating);//inserts rating
-                pstmt.setString(3, respone);
+                pstmt.setString(3, respone);//Inserts response
+                pstmt.setInt(4, );
                 pstmt.executeUpdate();//sends it to the database
                 conn.close();//close database
             }
