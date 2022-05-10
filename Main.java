@@ -63,7 +63,7 @@ public class Main {
             String respone = username.nextLine();
             respone = username.nextLine();
             int ratingpint;
-            ratingpint = ratingp.backcount(respone);
+            ratingpint = ratingp.backcount(respone,rating);
 
 
             username.close(); //close scanner

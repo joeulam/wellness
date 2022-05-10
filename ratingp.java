@@ -5,12 +5,12 @@ import java.util.*;
 import java.time.*;
 public class ratingp {
     static String toberated;
-    static int backend = 5;
-    public static int backcount(String a)
+    static int backend;
+    public static int backcount(String a,int b)
     {
         
         toberated = a;
-        
+        backend = b-1;
         try{
             File myobj2 = new File("negative-words.txt");
             Scanner myreader2 = new Scanner(myobj2);//reads negitive txt file
