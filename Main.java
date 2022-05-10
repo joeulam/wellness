@@ -65,13 +65,16 @@ public class Main {
             System.out.println(Scale.ratingcal(rating)+"what happened?");
             String respone = username.nextLine();
             respone = username.nextLine();
-            respone.ratingp(respone);
+            int ratingpint;
+            ratingpint = ratingp.backcount(respone);
+
+
             username.close(); //close scanner
                 
                 pstmt.setDate(1, date);//inserts date
                 pstmt.setInt(2,rating);//inserts rating
                 pstmt.setString(3, respone);//Inserts response
-                pstmt.setInt(4, );
+                pstmt.setInt(4, ratingpint);
                 pstmt.executeUpdate();//sends it to the database
                 conn.close();//close database
             }

@@ -5,15 +5,12 @@ import java.util.Scanner; // Import the Scanner class to read text files
 import javax.xml.crypto.Data;
 
 public class ratingp {
-    String toberated;
-    int backend = 0;
-    public ratingp(String a)
+    static String toberated;
+    static int backend = 0;
+
+    public static int backcount(String a)
     {
         toberated = a;
-    }
-
-    public int backcount()
-    {
         try{
             File myObj = new File("positive-words.txt");
             Scanner myReader = new Scanner(myObj);
