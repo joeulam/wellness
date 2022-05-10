@@ -1,8 +1,6 @@
 import java.io.File;  // Import the File class
 import java.io.FileNotFoundException;  // Import this class to handle errors
 import java.util.Scanner; // Import the Scanner class to read text files
-import java.util.Date;
-import javax.xml.crypto.Data;
 import java.util.*;
 import java.time.*;
 public class ratingp {
@@ -12,6 +10,7 @@ public class ratingp {
     {
         
         toberated = a;
+        
         try{
             File myobj2 = new File("negative-words.txt");
             Scanner myreader2 = new Scanner(myobj2);//reads negitive txt file
