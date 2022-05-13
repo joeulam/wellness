@@ -26,7 +26,7 @@ public class Main {
             String que = "CREATE USER IF NOT EXISTS " +logins+"@'localhost' IDENTIFIED BY '"+password+"'";
 
             PreparedStatement usercs = usercr.prepareStatement(que);
-            String tablecre = "CREATE TABLE IF NOT EXISTS " + logins + "(" + " dates DATETIME NOT NULL," + "scale INT NOT NULL,"+ "reponse VARCHAR(225),"+"hidden INT NOT NULL)";
+            String tablecre = "CREATE TABLE IF NOT EXISTS " + logins + "(" + " dates DATETIME NOT NULL," + "scale INT NOT NULL,"+ "reponse VARCHAR(999),"+"hidden INT NOT NULL)";
             PreparedStatement batlecreater = con.prepareStatement(tablecre);
             String userperm = "GRANT CREATE ON * . * TO '" +logins+"' @'localhost'";
             usercs.executeUpdate();
@@ -45,7 +45,7 @@ public class Main {
             tablemaker.executeQuery ();
            }*/
             
-            String user = logins;
+            String user = logins; //Fix so user cant input numbers//
             String pass = password;
 
             //AUTHORIZATION & WHAT DATA TO INSORT
@@ -64,7 +64,7 @@ public class Main {
             respone = username.nextLine();
             int ratingpint;
             ratingpint = ratingp.backcount(respone,rating);
-
+           ratingp2.backcount(respone, rating);
 
             username.close(); //close scanner
                 

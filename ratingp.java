@@ -19,7 +19,7 @@ public class ratingp {
             while (myReader.hasNextLine()) {
                 String data = myReader.nextLine();
                 String neg = myreader2.nextLine();
-                if(toberated.contains(data) && backend < 11)
+                if(toberated.contains(data) && backend < 10)
                 {
                     backend++;
                 }
