@@ -37,7 +37,7 @@ public class ratingp {
 
     }
     LocalDate mill = LocalDate.now();
-    if(getDayNumberNew(mill)== 5) //change to 5
+    if(getDayNumberNew(mill)== 3) //change to 5
     {
         System.out.println(pday());
     }

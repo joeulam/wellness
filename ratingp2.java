@@ -40,17 +40,19 @@ public class ratingp2 {
     catch(Exception e){System.out.println(e);}    
           System.out.println("Success writing...");
 
-    LocalDate mill = LocalDate.now();
-    if(getDayNumberNew(mill)== 5) //change to 5
-    {
-        System.out.println(pday());
-    }
+    
     return backend;
     }
 
+
     public static int pday()
     {
-        return 1;//get a sql call of last 7 days
+        LocalDate mill = LocalDate.now();
+    if(getDayNumberNew(mill)== 5) //change to 5
+    {
+        return 1;
+    }
+     return 0;
     }
     public static int getDayNumberNew(LocalDate date) {
         DayOfWeek day = date.getDayOfWeek();

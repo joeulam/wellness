@@ -1,6 +1,9 @@
 
 import java.util.Scanner;
 
+import com.mysql.cj.protocol.Resultset;
+import com.mysql.cj.xdevapi.Result;
+
 import java.sql.* ;
 
 
@@ -33,7 +36,7 @@ public class Main {
             usercs = usercr.prepareStatement(userperm);
             userperm ="GRANT INSERT ON * . * TO '" +logins+"' @'localhost'";
             usercs = usercr.prepareStatement(userperm);
-            userperm ="GRANT INSERT ON * . * TO '" +logins+"' @'localhost'";
+            userperm ="GRANT SELECT ON * . * TO '" +logins+"' @'localhost'";
 
             usercs.executeUpdate();
             batlecreater.executeUpdate();
@@ -73,6 +76,19 @@ public class Main {
                 pstmt.setString(3, respone);//Inserts response
                 pstmt.setInt(4, ratingpint);
                 pstmt.executeUpdate();//sends it to the database
+                if(ratingp2.pday()==1)
+                {
+                    ResultSet gatherhold = null;
+                    PreparedStatement gather = conn.prepareStatement("select scale from '"+user+"' where dates > now() - interval 7 day");
+                    gatherhold = gather.executeQuery();
+                    int numbhold =0;
+                    
+                    while(gatherhold.next())
+                    {
+                        numbhold += gatherhold.getInt(user);
+                    }
+                    System.out.println(numbhold/7);
+                }
                 conn.close();//close database
             }
             catch (Exception e) {
