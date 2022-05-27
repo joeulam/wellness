@@ -76,7 +76,7 @@ public class Main {
                 pstmt.setString(3, respone);//Inserts response
                 pstmt.setInt(4, ratingpint);
                 pstmt.executeUpdate();//sends it to the database
-                if(ratingp2.pday()==1)
+                /*if(ratingp2.pday()==1)
                 {
                     ResultSet gatherhold = null;
                     PreparedStatement gather = conn.prepareStatement("select scale from '"+user+"' where dates > now() - interval 7 day");
@@ -88,7 +88,9 @@ public class Main {
                         numbhold += gatherhold.getInt(user);
                     }
                     System.out.println(numbhold/7);
-                }
+                }*/ //bugged pls fix soon thx
+                learn pp = new learn();
+                pp.learns();
                 conn.close();//close database
             }
             catch (Exception e) {
