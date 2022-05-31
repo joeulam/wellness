@@ -90,7 +90,7 @@ public class Main {
                     System.out.println(numbhold/7);
                 }*/ //bugged pls fix soon thx
                 learn pp = new learn();
-                pp.learns();
+                System.out.println(pp);
                 conn.close();//close database
             }
             catch (Exception e) {

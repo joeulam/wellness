@@ -1,7 +1,9 @@
-import java.io.File;  // Import the File class
+import java.io.File.*;  // Import the File class
 import java.io.FileNotFoundException;  // Import this class to handle errors
 import java.util.Scanner; // Import the Scanner class to read text files
 import java.util.*;
+import java.io.*;
+import java.io.BufferedWriter;
 import java.io.FileWriter;  
 import java.time.*;
 public class ratingp2 {
@@ -9,25 +11,30 @@ public class ratingp2 {
     static int backend;
     public static int backcount(String a,int b)
     {
+        BufferedWriter bw = null;
+
         try{
             if(b >= 8)
             {
-                FileWriter fw=new FileWriter("C:/Users/joeul/Documents/GitHub/wellness/posword.txt");    
-                fw.write(a+"\r\n");
-                fw.close();    
+                FileWriter fw=new FileWriter("C:/Users/joeul/Documents/GitHub/wellness/posword.txt",true); 
+                bw = new BufferedWriter(fw); 
+                bw.write(a+"\r\n");
+                bw.close();    
 
             }
             else if (b>=4 && b<=7)
             {
-                FileWriter fw=new FileWriter("C:/Users/joeul/Documents/GitHub/wellness/neur.txt");    
-                fw.write(a+"\r\n");
-                fw.close();    
+                FileWriter fw=new FileWriter("C:/Users/joeul/Documents/GitHub/wellness/neur.txt",true);    
+                bw = new BufferedWriter(fw);   
+                bw.write(a+"\r\n");
+                bw.close();    
 
             }
             else{
-                FileWriter fw=new FileWriter("C:/Users/joeul/Documents/GitHub/wellness/negwords.txt");    
-                fw.write(a+"\r\n");
-                fw.close();    
+                FileWriter fw=new FileWriter("C:/Users/joeul/Documents/GitHub/wellness/negwords.txt",true);
+                bw = new BufferedWriter(fw);     
+                bw.write(a+"\r\n");
+                bw.close();    
 
             }
             
