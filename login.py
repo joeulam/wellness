@@ -7,6 +7,7 @@ from PyQt6.QtWidgets import QWidget
 from PyQt6.QtWidgets import *
 from PyQt6.QtGui import *
 from PyQt6.QtCore import *
+from py4j.java_gateway import JavaGateway
 
 
 class Dialog(QDialog):
@@ -28,7 +29,7 @@ class Dialog(QDialog):
     
    
 def login_info():
-    print("p")
+    print('logging in...')
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)
