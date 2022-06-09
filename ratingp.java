@@ -34,7 +34,7 @@ public class ratingp {
         catch(FileNotFoundException e) {
             System.out.println("An error occurred.");
             e.printStackTrace();
-
+            //Tries to look for keywords and grade the response
     }
     LocalDate mill = LocalDate.now();
     if(getDayNumberNew(mill)== 3) //change to 5
@@ -52,5 +52,7 @@ public class ratingp {
         DayOfWeek day = date.getDayOfWeek();
         return day.getValue();
     }
+
+
 }
 

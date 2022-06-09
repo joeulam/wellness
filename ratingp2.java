@@ -20,7 +20,7 @@ public class ratingp2 {
                 bw = new BufferedWriter(fw); 
                 bw.write(a+"\r\n");
                 bw.close();    
-
+                //Add new words into files
             }
             else if (b>=4 && b<=7)
             {
@@ -28,6 +28,7 @@ public class ratingp2 {
                 bw = new BufferedWriter(fw);   
                 bw.write(a+"\r\n");
                 bw.close();    
+                //Add new words into files
 
             }
             else{
@@ -35,6 +36,7 @@ public class ratingp2 {
                 bw = new BufferedWriter(fw);     
                 bw.write(a+"\r\n");
                 bw.close();    
+                //Add new words into files
 
             }
             

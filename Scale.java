@@ -1,7 +1,7 @@
 
 public class Scale {
 
-
+//Base responses
     public static String ratingcal(int range)
     {
         if(range <= 0 || range >= 11)
