@@ -26,7 +26,7 @@ public class learn{
                     String canidate2 = data2.substring(i, canidate);//substrings the line to the space
                     i = canidate;//set new min to the old space
                     System.out.println(canidate2);
-                if(data2.contains(canidate2) ){
+                while(data2.contains(canidate2) && myReader.hasNextLine()){
                     counter++;
                 }
                 data2 = data2.substring(canidate);// shortens the string
